@@ -4,7 +4,7 @@ BIN="/app/snell-server"
 CONF="/app/snell-server.conf"
 
 get_public_ip() {
-  PUBLIC_IP=$(curl -s http://kiemtraip.com/raw.php)
+  PUBLIC_IP=$(wget -qO- http://kiemtraip.com/raw.php)
   echo "Public IP: ${PUBLIC_IP}"
 }
 
