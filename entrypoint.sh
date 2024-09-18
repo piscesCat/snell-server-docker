@@ -3,9 +3,9 @@
 BIN="/app/snell-server"
 CONF="/app/snell-server.conf"
 
-get_host_ip() {
-  HOST_IP=$(hostname -I | awk '{print $1}')
-  echo "Server IP: ${HOST_IP}"
+get_public_ip() {
+  PUBLIC_IP=$(curl -s http://kiemtraip.com/raw.php)
+  echo "Public IP: ${PUBLIC_IP}"
 }
 
 run() {
@@ -27,7 +27,7 @@ ipv6 = ${IPV6}
 EOF
   fi
 
-  get_host_ip
+  get_public_ip
   echo -e "Starting snell-server...\n"
   echo "Config:"
   cat ${CONF}
